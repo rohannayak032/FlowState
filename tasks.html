@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlowState</title>
+    <link rel = "stylesheet" href = "main.css">
+</head>
+<body>
+    <header>
+        <div id = "Header">
+            <h1>FLOWSTATE</h1>
+        </div>
+    </header>
+    
+    <div class = "container">
+        <button id="toggle-btn" class="toggle-btn">
+            🧠
+        </button>
+        <aside class = "sidebar">
+            <h1 id = "menu-header-text">FlowState</h1>
+            <ul class = "sidebar-options">
+                <li><a href="main.html">🏠 Home</a></li>
+                <li class = "active"><a href="tasks.html">✅ Tasks</a></li>
+                <li class="coming-soon">📅 Calendar <span>Soon</span></li>
+                <li class="coming-soon">📝 Notes <span>Soon</span></li>
+                <li class="coming-soon">📊 Analytics <span>Soon</span></li>
+                <li class="coming-soon">⚙️ Settings <span>Soon</span></li>
+            </ul>
+        </aside>
+
+        <main class = "main-content">
+            <section class="tasks-page">
+                <h1>Tasks</h1>
+                <div class = "tasks-container">
+                    <aside class = "categories-panel">
+                        <h2>Categories</h2>
+                        <ul id = "categories-list">
+                            
+                        </ul>
+                    </aside>
+                    <section class = "tasks-panel">
+                        <h2>Your Tasks</h2>
+                        <ul id = "tasks-list">
+                            
+                        </ul>
+                    </section>
+                </div>
+                <button id="add-task-btn" class="floating-btn">
+                    +
+                </button>
+                <div id = "task-modal" class = "modal">
+                    <div class = "modal-content">
+                        <button class="close-modal">&times;</button>
+                        <h2>✨ What's next?</h2>
+                        <label for="modal-category">Category</label>
+                            <select id="modal-category">
+                                
+                            </select>
+                            <label for="modal-task">Task</label>
+
+                            <input
+                                id="modal-task"
+                                type="text"
+                                placeholder="Enter task..."
+                            >
+
+                            <button id="modal-add-btn">
+                                Add Task
+                            </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+    </div>
+    <script src="tasks.js"></script>
+</body>
+
+</html>

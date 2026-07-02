@@ -1,18 +1,51 @@
-# WutToDo - Tasks App
+# FlowState – A Personal Productivity Dashboard
+FlowState is a modern productivity dashboard built using **HTML, CSS, and Vanilla JavaScript**. It helps users organize tasks into categories, track progress, and stay productive through a clean, minimal interface.
 
-Creating my own To-Do Tasks web application while learning Web Development. The app is being updated incrementally as I learn new concepts and technologies.
+Originally developed as a simple to-do list called **WutToDo**, the project gradually evolved as I learned more about JavaScript and frontend development. Rather than continuing to build on a basic task manager, I decided to redesign the application from the ground up into **FlowState**—a more polished and scalable productivity dashboard.
 
-## Features
+This project was built to strengthen my understanding of DOM manipulation, state management, dynamic rendering, event handling, and browser storage while creating an application that feels like a real product instead of a classroom assignment.
 
-- Add tasks
-- Delete tasks
-- Mark tasks as completed
-- Live statistics dashboard
-- Enter key support
+---
 
-## Changelog
+## ✨ Features
 
-## Development History (Latest to Oldest)
+- 📋 Add and delete tasks
+- ✅ Mark tasks as completed
+- 📂 Organize tasks using categories
+- 🔍 Filter tasks by category
+- 📊 Live dashboard statistics
+- ⚡ Quick Add Task from the dashboard
+- 💾 Persistent storage using Local Storage
+- 🌙 Modern dark-themed interface
+- 📱 Responsive layout
+
+---
+
+## 🛠️ Built With
+
+- HTML5
+- CSS3
+- Vanilla JavaScript
+- Local Storage API
+
+---
+
+# 📜 Development History
+
+## v1.0.0 - Initial Stable Release
+- Redesigned the project from **WutToDo** into **FlowState**
+- Added a modern dashboard
+- Introduced category-based task management
+- Added task filtering
+- Added Quick Add functionality
+- Live dashboard statistics
+- Persistent storage using Local Storage
+- Multi-page application structure
+- Complete UI redesign
+
+---
+
+## Previous Versions
 
 ### v0.8.0 Added local storage support
 - Added browser-based task saving using localStorage

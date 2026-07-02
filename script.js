@@ -1,102 +1,117 @@
 let tasks = [];
-const addbtn = document.getElementById("add_btn");
-let ip_box = document.getElementById("ip-box");    
-const ul = document.querySelector("#task-list");
-const cul = document.querySelector("#completed-list")
+let categories = [
+    {
+        name: "General"
+    }, 
+    {
+        name: "College"
+    }
+];
+const categoriesDropdown = document.getElementById("category");
+const addbtn = document.getElementById("add-task-btn");
+let task_input = document.getElementById("task-input");    
 let tot_count = document.querySelector("#tot-count");
 let rem_count = document.querySelector("#rem-count");
 let comp_count = document.querySelector("#comp-count");
+const toggleBtn = document.getElementById("toggle-btn");
+const sidebar = document.querySelector(".sidebar");
 
 
-//SAVING TASKS
-function saveTasks(){
-    let t = JSON.stringify(tasks);
-    localStorage.setItem("tasks",t);
-}
-//LOADING TASKS
-function loadTasks(){
-    let savedTasks = localStorage.getItem("tasks");
-    if(savedTasks){
-        tasks = JSON.parse(savedTasks);
-        renderTasks();
-    }
-}
-//RENDERING TASKS
-function renderTasks(){
-    ul.innerHTML="";
-    tasks.forEach((task,index) =>{
-        let li = document.createElement("li");
-        let checkbox = document.createElement("input");
-        checkbox.type = "checkbox";
-        checkbox.checked = task.completed;
-        let span = document.createElement("span");
-        span.innerText = task.text;
-        if(task.completed == true){
-            span.classList.add("completed-text");
-        }
-        const del = document.createElement("button");
-        del.innerText = "X";
-        ip_box.value = "";
-        del.classList.add("delete-btn");
-        li.appendChild(checkbox);
-        li.appendChild(span);
-        li.appendChild(del);
-        ul.appendChild(li);
+//SIDEBAR TOGGLE BUTTON FUNCTIONALITY
+toggleBtn.addEventListener("click", function(){
+    sidebar.classList.toggle("open");
+})
 
-        del.addEventListener("click", function (){
-            tasks.splice(index, 1);
-            saveTasks();
-            renderTasks();
-        })
-
-        checkbox.addEventListener("change",function() {
-            if(task.completed == false){
-                task.completed = true;
-                saveTasks();
-                renderTasks();
-            }
-            else{
-                task.completed = false;
-                saveTasks();
-                renderTasks();
-            }
-        })
-    });
-    let tc = tasks.length;
-    let rc = tasks.filter(function(task) {
-        return !task.completed;
-    }).length;
-    let cc = tasks.filter(function(task){ 
-        return task.completed;
-    }).length;
-    tot_count.innerText = tc;
-    rem_count.innerText = rc;
-    comp_count.innerText = cc;
-}
 
 //ADD TASK
 function addTask() {
-    let task = ip_box.value;
+    let task = task_input.value;
     if(task.trim()==""){
         alert("Please enter a task");
         return;
     }
     let task_obj = {
         text: task,
-        completed: false
+        completed: false,
+        category: categoriesDropdown.value
     }
     tasks.push(task_obj);
     saveTasks();
-    renderTasks();
-    ip_box.value = "";
+    renderDashboard();
+    task_input.value = "";
 }
 
 //ENTER KEY FUNCTIONALITY
-ip_box.addEventListener("keydown", function(event) {
+task_input.addEventListener("keydown", function(event) {
     if(event.key=="Enter"){
         addTask();
     }
 })
 addbtn.addEventListener("click", addTask);
 
+//SAVING TASKS
+function saveTasks(){
+    let t = JSON.stringify(tasks);
+    localStorage.setItem("tasks",t);
+    renderDashboard();
+}
+//LOADING TASKS
+function loadTasks(){
+    let savedTasks = localStorage.getItem("tasks");
+    if(savedTasks){
+        tasks = JSON.parse(savedTasks);
+    }
+    else{
+        saveTasks();
+    }
+}
+
+function renderDashboard(){
+    let rc = 0;
+    let cc = 0;
+    tot_count.innerText = tasks.length;
+    for(let task of tasks){
+        if(task.completed==true){
+            cc++;
+        }
+        else{
+            rc++;
+        }
+    }
+    rem_count.innerText = rc;
+    comp_count.innerText = cc;
+}   
+
+//CATEGORIES 
+function loadCategories(){
+    let savedCategories = localStorage.getItem("categories");
+    if(savedCategories){
+        categories = JSON.parse(savedCategories);
+    }
+    else{
+        saveCategories();
+    }
+}
+function renderCategoriesDropdown(){
+        categoriesDropdown.innerHTML = "";
+        categories.forEach(function(category){
+        let option = document.createElement("option");
+        option.innerText = category.name;
+        option.value = category.name;
+        categoriesDropdown.appendChild(option);
+    });
+}
+function saveCategories(){
+    localStorage.setItem("categories", JSON.stringify(categories));
+}
+
+document.querySelectorAll(".coming-soon").forEach(item => {
+    item.addEventListener("click", function () {
+        alert("🚧 This feature is coming in a future FlowState update!");
+    });
+});
+
 loadTasks();
+renderDashboard();
+loadCategories();
+renderCategoriesDropdown();

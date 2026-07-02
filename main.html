@@ -3,16 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WutToDo</title>
+    <title>FlowState</title>
     <link rel = "stylesheet" href = "main.css">
 </head>
 <body>
-    <div class = "container">
+    <header>
         <div id = "Header">
-            <h1>WutToDo</h1>
+            <h1>FLOWSTATE</h1>
         </div>
+    </header>
+    
+    <div class = "container">
+        <button id="toggle-btn" class="toggle-btn">
+            🧠
+        </button>
+        <aside class = "sidebar">
+            <h1 id = "menu-header-text">FlowState</h1>
+            <ul class = "sidebar-options">
+                <li class = "active"><a href="main.html">🏠 Home</a></li>
+                <li><a href="tasks.html">✅ Tasks</a></li>
+                <li class="coming-soon">📅 Calendar <span>Soon</span></li>
+                <li class="coming-soon">📝 Notes <span>Soon</span></li>
+                <li class="coming-soon">📊 Analytics <span>Soon</span></li>
+                <li class="coming-soon">⚙️ Settings <span>Soon</span></li>
+            </ul>
+        </aside>
 
-        <div id = "task-box">
+        <main class = "main-content">
+            <section class = "dashboard">
+
+                <div class="card welcome-card">
+                    <h2 id = "greeting-time">👋 Good Evening</h2>
+                    <p>Lets get into FlowState</p>
+                </div>
+
+                <div class="card stats-row">
+                    <div class="card stat-card">
+                        📋<br><br>
+                        <h3>Total Tasks</h3>
+                        <span id = "tot-count">3</span>
+                    </div>
+
+                    <div class="card stat-card">
+                        ⏳<br><br>
+                        <h3>Remaining Tasks</h3>
+                        <span id = "rem-count">3</span>
+                    </div>
+
+                    <div class="card stat-card">
+                        ✅<br><br>
+                        <h3>Completed Tasks</h3>
+                        <span id = "comp-count">3</span>
+                    </div>
+                </div>
+
+                <div class="card quick-add-card">
+                    <h2>➕ Quick Add Task</h2>
+                    <label for = "category">Category</label>
+                    <select id = "category">
+                        
+                    </select><br><br>
+                    <label for = "task-input">Task</label>
+                    <input type = "text" id = "task-input" placeholder="Enter your task..."><br><br>
+                    <button id = "add-task-btn">Add Task</button>
+
+                </div>
+                
+                <div class="card quote-card"></div>
+
+            </section>
+        </main>
+
+        <!-- <div id = "task-box">
             <span>Total Tasks: <span id = "tot-count">0</span></span>
             <span>Remaining Tasks: <span id = "rem-count">0</span></span>
             <span>Completed Tasks: <span id = "comp-count">0</span></span>
@@ -23,7 +85,7 @@
             <ul id = "task-list">
                 
             </ul>
-        </div>  
+        </div>   -->
     </div>
     <script src="script.js"></script>
 </body>
