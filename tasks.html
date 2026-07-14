@@ -36,8 +36,11 @@
                     <aside class = "categories-panel">
                         <h2>Categories</h2>
                         <ul id = "categories-list">
-                            
+
                         </ul>
+                        <button id="add-category-btn" class="add-category-btn">
+                            + Add Category
+                        </button>
                     </aside>
                     <section class = "tasks-panel">
                         <h2>Your Tasks</h2>
@@ -68,6 +71,24 @@
                             <button id="modal-add-btn">
                                 Add Task
                             </button>
+                    </div>
+                    </div>
+                    <div id="category-modal" class="modal">
+                        <div class="modal-content">
+                            <button class="close-category-modal">&times;</button>
+                            <h2>📂 Create Category</h2>
+                            <label for="category-name">
+                                Category Name
+                            </label>
+                            <input
+                                id="category-name"
+                                type="text"
+                                placeholder="Enter category name..."
+                            >
+                            <button id="create-category-btn">
+                                Create Category
+                            </button>
+                        </div>
                     </div>
                 </div>
             </section>

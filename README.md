@@ -32,6 +32,24 @@ This project was built to strengthen my understanding of DOM manipulation, state
 
 # 📜 Development History
 
+### v1.1.0 - Category Management & UX Improvements
+
+This update transforms FlowState into a more flexible productivity dashboard by introducing custom category management and improving the overall task management experience.
+
+#### ✨ Added
+- Custom category creation
+
+#### 🎨 Improved
+- Completed tasks now automatically move to the bottom
+- Better category sidebar UI
+- Better modal interactions
+- General code cleanup and refactoring
+
+#### 🛠 Fixed
+- Various rendering issues
+- LocalStorage synchronization improvements
+- Better task ordering
+
 ## v1.0.0 - Initial Stable Release
 - Redesigned the project from **WutToDo** into **FlowState**
 - Added a modern dashboard
